@@ -38,7 +38,7 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2>Aprende matemáticas por el bien de todos</h2>
+					<h2>¡Aprende matemáticas por el bien de todos!</h2>
 				</section>
 				<section>
 					<section>
@@ -48,18 +48,20 @@
 						<p><strong>Ulises J. Cornejo Fandos</strong></p>
 						<p><em>Curso el tercer año de las carreras APU, Lic. en Sistemas y Lic. en Informática</em></p>
 					</section>
-					<section>
-
-					</section>
 				</section>
 				<section>
 					<section>
 						<h2>Universo de discurso</h2>
 					</section>
 					<section>
-						<p>Reponder la siguiente pregunta</p>
-						<br>
-						<p class="fragment"><em>¿Cuál es el rol que toman las matemáticas dentro del mundo de la computación?</em></p>
+						<p><em>Cuando empecé mis estudios en la facultad no tenía en claro cual era la necesidad de las matemáticas en el campo de la informática.</em></p>
+					</section>
+					<section>
+						<p><em>Si bien sabía que estas son necesarias, no conocia la razón.</em></p>
+					</section>
+					<section>
+						<p>Luego, el objetivo de esta charla es el de reponder la siguiente pregunta</p>
+						<p><i>¿Cuál es el rol que toman las matemáticas dentro del mundo de la computación?</i></p>
 					</section>
 				</section>
 				<section>
@@ -69,24 +71,47 @@
 					<section>
 						<ul>
 							<li class="">Aplicaciones o Sistemas Web</li>
-							<li class="fragment">Desarrollo de Video Juegos y animaciones</li>
-							<li class="fragment">Inteligencia Artificial
-								<ul>
-									<li><em>Inteligencia Convencional</em></li>
-									<li class="fragment"><em>Inteigencia Computacional</em></li>
-								</ul>
-							</li>
+							<li class="fragment">Desarrollo de Video Juegos</li>
+							<li class="fragment">Inteligencia Artificial</li>
 						</ul>
 					</section>
 				</section>
 				<section>
-					<h2>Sistemas Web</h2>
+					<section>
+						<h2>Sistemas Web</h2>
+					</section>
+					<section>
+
+					</section>
 				</section>
 				<section>
-					<h2>Sistemas Web</h2>
+					<section>
+						<h2>Gaming</h2>
+					</section>
+					<section>
+						<p>En el desarrollo de video juego, las matemáticas se utilizan para el la física de los mismos.</p>
+						<p class="fragment fade-up"><strong><em>¡No programamos física como tal!</em></strong></p>
+					</section>
+					<section>
+						<p>Las matemáticas permiten formalizar la física necesaria para la programación de video juegos.</p>
+					</section>
+					<section>
+						<h2>Ejemplo</h2>
+					</section>
+					<section>
+						<p><strong><em>Supongamos que queremos modelar una bola que se encuentra a 5m de altura. Esta bola cae e impacta con el suelo, revotando hasta quedar en reposo.</em></strong></p>
+					</section>
 				</section>
 				<section>
-					<h2>Sistemas Web</h2>
+					<section>
+						<h2>Inteligancia Artificial</h2>
+					</section>
+					<section>
+
+					</section>
+					<section>
+
+					</section>
 				</section>
 			</div>
 		</div>
@@ -98,13 +123,15 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				transition: 'convex',
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/math/math.js', async: true }
 				]
 			});
 		</script>
