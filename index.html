@@ -16,7 +16,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<!--<link rel="stylesheet" href="css/theme/solarized.css" id="theme">-->
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -40,7 +41,7 @@
 				<section>
 					<h2>¡Aprende matemáticas por el bien de todos!</h2>
 				</section>
-				<section>
+				<section data-autoslide="2000">
 					<section>
 						<h2>Un poco sobre mi</h2>
 					</section>
@@ -54,13 +55,13 @@
 						<h2>Universo de discurso</h2>
 					</section>
 					<section>
-						<p><em>Cuando empecé mis estudios en la facultad no tenía en claro cual era la necesidad de las matemáticas en el campo de la informática.</em></p>
+						<p><em>Cuando empecé mis estudios en la facultad no tenía en claro cuál era la necesidad de las matemáticas en el campo de la informática.</em></p>
 					</section>
 					<section>
 						<p><em>Si bien sabía que estas son necesarias, no conocia la razón.</em></p>
 					</section>
 					<section>
-						<p>Luego, el objetivo de esta charla es el de reponder la siguiente pregunta</p>
+						<p>El objetivo de esta charla es reponder la siguiente pregunta:</p>
 						<p><i>¿Cuál es el rol que toman las matemáticas dentro del mundo de la computación?</i></p>
 					</section>
 				</section>
@@ -68,7 +69,7 @@
 					<section>
 						<h2>Ejes fundamentales de aplicación</h2>
 					</section>
-					<section>
+					<section data-autoslide="2000">
 						<ul>
 							<li class="">Aplicaciones o Sistemas Web</li>
 							<li class="fragment">Desarrollo de Video Juegos</li>
@@ -77,19 +78,22 @@
 					</section>
 				</section>
 				<section>
-					<section>
+					<section data-background-image="assets/images/sistemasweb.png">
 						<h2>Sistemas Web</h2>
+					</section>
+					<section>
+
 					</section>
 					<section>
 						<h3>Experiencias</h3>
 					</section>
 				</section>
-				<section>
-					<section>
-						<h2>Gaming</h2>
+				<section data-transition="zoom" data-background-image="assets/images/invaders.png">
+					<section data-background-image="assets/images/mgs.jpg">
+						<h2>Games Development</h2>
 					</section>
-					<section>
-						<p>En el desarrollo de video juego, las matemáticas se utilizan para el la física de los mismos.</p>
+					<section data-background-image="assets/images/pacman.jpg">
+						<p>En el desarrollo de videojuegos, las matemáticas se utilizan para la física de los mismos.</p>
 						<p class="fragment fade-up"><strong><em>¡No programamos física como tal!</em></strong></p>
 					</section>
 					<section>
@@ -100,10 +104,28 @@
 					</section>
 					<section>
 						<p><strong><em>Supongamos que queremos modelar una bola que se encuentra a 5m de altura. Esta bola cae e impacta con el suelo, revotando hasta quedar en reposo.</em></strong></p>
+						<a href="#"><p><small><em>Link to example</em></small></p></a>
+					</section>
+					<section>
+						<p>Existen diversas formas de plantear el desarrollo de esta</p>
+					</section>
+					<section>
+						<p>Se plantea el movimiento de la bola en 2D, quedando la posición de la misma de la siguiente forma:</p>
+					</section>
+					<section>
+						\[y(t)   = y_0 + v_y t + \frac{1}{2} g t^{2} \]
+						<br>
+						\[x(t)   = x_0 + v_x t \]
+					</section>
+					<section>
+						<p>Luego, podemos observar algunas cosas a tener en cuenta al momento de desarrollar un juego.</p>
+					</section>
+					<section>
+						<h2>INSERTAR IMAGENES</h2>
 					</section>
 				</section>
 				<section>
-					<section>
+					<section data-background-image="assets/images/ia.jpeg">
 						<h2>Inteligancia Artificial</h2>
 					</section>
 					<section>
@@ -112,6 +134,17 @@
 					<section>
 
 					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ejercicios</h2>
+					</section>
+					<section>
+						
+					</section>
+				</section>
+				<section data-background-image="assets/images/coffe.png" data-transition="zoom">
+
 				</section>
 			</div>
 		</div>
@@ -124,6 +157,10 @@
 			Reveal.initialize({
 				history: true,
 				transition: 'convex',
+				math: {
+					// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
@@ -131,6 +168,7 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js' },
 					{ src: 'plugin/math/math.js', async: true }
 				]
 			});
