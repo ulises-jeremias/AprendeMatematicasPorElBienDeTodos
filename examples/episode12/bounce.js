@@ -5,7 +5,7 @@ window.onload = function() {
 		height = canvas.height = window.innerHeight,
 		p = particle.create(width / 2, height / 2, 5, Math.random() * Math.PI * 2, 0.1);
 
-	p.radius = 40;
+	p.radius = 60;
 	p.bounce = -0.9;
 
 	update();
@@ -15,6 +15,7 @@ window.onload = function() {
 
 		p.update();
 
+		context.fillStyle = "#e7ad52";
 		context.beginPath();
 		context.arc(p.position.getX(), p.position.getY(), p.radius, 0, Math.PI * 2, false);
 		context.fill();
