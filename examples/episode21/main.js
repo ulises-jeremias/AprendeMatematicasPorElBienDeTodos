@@ -6,10 +6,18 @@ window.onload = function() {
 		width = canvas.width = targetCanvas.width = window.innerWidth,
 		height = canvas.height = targetCanvas.height = window.innerHeight,
 		p = particle.create(0, height / 2, 10, 0);
+		p.radius = 7;
+
+	/*var img = document.getElementById("nave");
+
+	targetContext.beginPath();
+	targetContext.translate(width / 2, height / 2);
+	targetContext.drawImage(img, -img.width / 2, -img.height / 2);
+	targetContext.fill();*/
 
 	targetContext.beginPath();
 	targetContext.arc(width / 2, height / 2, 200, 0, Math.PI * 2, false);
-	targetContext.fill();	
+	targetContext.fill();
 
 	update();
 
@@ -17,15 +25,16 @@ window.onload = function() {
 		context.clearRect(0, 0, width, height);
 
 		p.update();
+		context.fillStyle = "#e7ad52";
 		context.beginPath();
-		context.arc(p.x, p.y, 4, 0, Math.PI * 2, false);
+		context.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
 		context.fill();
 
 		var imageData = targetContext.getImageData(p.x, p.y, 1, 1);
 		if(imageData.data[3] > 0) {
 			targetContext.globalCompositeOperation = "destination-out";
 			targetContext.beginPath();
-			targetContext.arc(p.x, p.y, 20, 0, Math.PI * 2, false);
+			targetContext.arc(p.x, p.y, p.radius * 3, 0, Math.PI * 2, false);
 			targetContext.fill();
 
 			resetParticle();
