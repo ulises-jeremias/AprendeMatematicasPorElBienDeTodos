@@ -1,0 +1,437 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>AprendeMatemáticasPorElBienDeTodos</title>
+
+	<meta name="description" content="">
+	<meta name="author" content="Ulises J. Cornejo Fandos">
+	<meta name="generator" content="reveal-ck 3.3.0">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<link rel="stylesheet" href="css/reveal-ck.css">
+
+	<link rel="stylesheet" href="css/custom.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background-iframe="examples/episode23/index.html">
+				<h2>¡Aprende matemáticas por el bien de todos!</h2>
+			</section>
+			<section>
+				<section data-autoslide="1500">
+					<h2>Presentación</h2>
+					<h5 class="fragment fade-up">Un poco sobre mi</h5>
+				</section>
+				<section>
+					<p><strong>Ulises J. Cornejo Fandos</strong></p>
+					<p><em>Curso el tercer año de las carreras APU, Lic. en Sistemas y Lic. en Informática.</em></p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Universo de discurso</h2>
+				</section>
+				<section>
+					<p><em>Cuando empecé mis estudios en la facultad no tenía en claro cuál era la necesidad de las matemáticas en el campo de la informática.</em></p>
+				</section>
+				<section>
+					<p><em>Si bien sabía que éstas son necesarias, no conocia la razón.</em></p>
+				</section>
+				<section data-autoslide="2000">
+					<p>El objetivo de ésta charla es responder la siguiente pregunta:</p>
+					<p class="fragment fade-up"><i>¿Cuál es el rol que toman las matemáticas dentro del mundo de la computación?</i></h3>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Ejes fundamentales de aplicación</h2>
+				</section>
+				<section>
+					<p>Las carreras de la facultad están orientadas a la producción de Software, por lo que la siguiente lista refleja los ejes fundamenteles respecto de éste ámbito.</p>
+				</section>
+				<section data-autoslide="2000">
+					<ul>
+						<li class="">Web Systems</li>
+						<li class="fragment">Games Development</li>
+						<li class="fragment">Artificial Intelligence</li>
+					</ul>
+				</section>
+			</section>
+			<section data-transition="zoom">
+				<section data-background-image="assets/images/sistemasweb.png">
+					<h2>Web Systems</h2>
+				</section>
+				<section>
+					<h6>Éste es uno de los ejes más populares hoy en día dentro de lo que es la producción de software.</h6>
+				</section>
+				<section>
+					<p>En éste ámbito se ven reflejados algunos de los aspectos más básicos de la programación como lo son la lógica y persistencia de datos.</p>
+				</section>
+				<section>
+					<p>Particularmente, el manejo de base de datos se basa en fundamentalmente en la <span class="fragment highlight-blue">Teoría de Conjuntos</span> y <span class="fragment highlight-blue">Estructuras Algebráicas</span>.</p>
+				</section>
+				<section>
+					<h4>Las Relaciones y Conjuntos son una forma de entender la información.</h4>
+				</section>
+				<section>
+					<h2>EJERCICIO</h2>
+				</section>
+			</section>
+			<section data-transition="zoom">
+				<section data-background-image="assets/images/mgs.jpg">
+					<h3>Games Development</h3>
+				</section>
+				<section data-background-image="assets/images/pacman.jpg" data-autoslide="2000">
+					<p>En el desarrollo de videojuegos, las matemáticas se utilizan para la física de los mismos.</p>
+					<p class="fragment grow highlight-red"><strong>¡No programamos física como tal!</strong></p>
+				</section>
+				<section data-autoslide="2000">
+					<p>Las matemáticas permiten <span class="fragment highlight-red">formalizar la física</span> necesaria para la programación de videojuegos.</p>
+				</section>
+				<section data-background-image="assets/images/invaders.png">
+					<h2>Ejemplo</h2>
+				</section>
+				<section>
+					<p><em>Supongamos que queremos modelar una bola que se encuentra a 5m de altura. Se la deja caer en alguna dirección e impacta con el suelo, revotando hasta quedar en reposo.</em></p>
+					<a target="_blank" href="examples/episode12/index.html">
+						<p><small><em>Link to example</em></small></p>
+					</a>
+				</section>
+				<section data-autoslide="2500">
+					<p>Existen diversas formas de plantear el desarrollo de éste problema. A continuación se dispone una de ellas:</p>
+				</section>
+				<section>
+					<p>Se plantea el movimiento de la bola en 2D, quedando la posición de la misma de la siguiente forma:</p>
+				</section>
+				<section>
+					\[ y(t) = y_0 + v_y t + \frac{1}{2} g t^{2} \\ x(t) = x_0 + v_x t \]
+				</section>
+				<section>
+					<p>Para esto se busca conocer un vector posición: </p>
+					\[ \vec{\mathbf{r}} = (x, y) \]
+					<p>el cual esté definido en un tiempo \(t\).</p>
+				</section>
+				<section>
+					<h5>Siguiendo esto, nos quedaría algo así</h5>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/episode12/index.html">
+				</section>
+				<section>
+					<p>Ahora, podemos aplicar el caso anterior a \(n\) bolas...</p>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/episode8/index.html">
+				</section>
+				<section>
+					<p>Luego, podemos observar algunas cosas a tener en cuenta al momento de desarrollar un juego.</p>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/episode23/index.html">
+					<h5>Movimiento de partículas en 3D</h5>
+					<a target="_blank" href="examples/episode23/index.html" class="fragment fade-up"><p><small>Link to example</small></p></a>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/episode15/index.html">
+					<a target="_blank" href="examples/episode15/index.html" class="fragment fade-up"><p><small>Link to example</small></p></a>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/episode18/index.html">
+					<h5>Interacción entre partículas</h5>
+					<a target="_blank" href="examples/episode18/index.html" class="fragment fade-up"><p><small>Link to example</small></p></a>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/episode21/index.html">
+					<h5>Colisiones</h5>
+					<a target="_blank" href="examples/episode21/index.html" class="fragment fade-up"><p><small>Link to example</small></p></a>
+				</section>
+				<section data-background-color="#fff" data-background-iframe="examples/application4/index.html">
+					<h5>Mini demostración de juego</h5>
+					<a target="_blank" href="examples/application4/index.html" class="fragment fade-up"><p><small>Link to example</small></p></a>
+				</section>
+				<section>
+					<h4>Sitios y cursos recomendados</h4>
+					<ul>
+						<li><a href="http://www.codingmath.com/">CodingMath</a></li>
+						<li><a href="https://www.youtube.com/user/shiffman">The Coding Train</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Resumen</h2>
+				</section>
+			</section>
+			<section data-transition="zoom">
+				<section data-background-image="assets/images/ia.jpeg">
+					<h2>Inteligencia Artificial</h2>
+				</section>
+				<section>
+					<p>En éste ámbito se destaca a lo largo de la carrera lo que se conoce como Machine Learning.</p>
+				</section>
+				<section>
+					<p>Las matemáticas permiten el desarrollo de algoritmos los cuales le permitan a una máquina discriminar datos.</p>
+				</section>
+				<section>
+					<p>Se cuenta con un conjunto de entrada \(A\), se le aplica una función \(f\) y ésta retorna un conjunto de salida \(B\).</p>
+				</section>
+				<section>
+					<p>Dicha función representa un algoritmo computable el cual es una correlación \(f\) entre los conjuntos \(A\) y \(B\).</p>
+				</section>
+			</section>
+			<section data-transition="zoom">
+				<h2>Otros Ejemplos</h2>
+			</section>
+			<section>
+				<section>
+					<h5>¿Cuántas cámaras hay que colocar para vigilar completamente una casa?</h5>
+				</section>
+				<section>
+					<p>Éste es un problema matemático que se conoce como:</p>
+					<p class="fragment grow highlight-blue"><em>"El problema de la galería de arte".</em></p>
+				</section>
+				<section>
+					<p>Es un problema que pertenece a una rama de las matemáticas denominada <span class="fragment highlight-blue">Geometría Computacional</span></p>
+				</section>
+				<section>
+					<h5>Puedes ver una explicación del problema a continuación</h5>
+					<a target="_blank" href="https://youtu.be/nEFYpwofbbk"><small class="fragment grow highlight-blue">¿Cuántas cámaras hacen falta para vigilar una casa?</small></a>
+				</section>
+				<section>
+					<p>En resumen, hay una forma de encontrar una solución con <span class="fragment highlight-blue"> Triangulaciones y Teoría de Grafos</span>.</p>
+				</section>
+				<section>
+					<p>Se triangula un polígono de \(n\) lados obteniendo \(n-2\) triángulos.</p>
+					<p class="fragment">Se construye un grafo dual con el centro de cada uno de ellos, siendo éste siempre de un tipo específico...</p>
+					<h3 class="fragment"><span class="fragment grow highlight-red">Arboles</span></h3>
+				</section>
+				<section>
+					<p>Es demostrable que, siendo \(n\) la cantidad de lados del polígono, la cantidad máxima de cámaras \(c\) será:</p>
+					\[ \mathbf{c} = \frac{\mathbf{n}}{3} \]
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Life</h2>
+				</section>
+				<section>
+					<h5>Conway's Game of Life</h5>
+					<p>Éste ejemplo permite explicar matemáticamente la interacción entre entidades.</p>
+				</section>
+				<section>
+					<p>Es un algoritmo matemático el cual representa un juego para hacer jugadores.</p>
+				</section>
+				<section>
+					<p>Los conceptos matemáticos necesarios para entender éste algoritmo son la <span class="fragment grow highlight-blue">Lógica</span> y <span class="fragment grow highlight-blue">Mátrices</span>.</p>
+				</section>
+				<section data-background-iframe="examples/Conway-s-game-of-life/index.html">
+					<a target="_blank" href="examples/Conway-s-game-of-life/index.html">Link to example</a>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Cátedras de la Facultad</h2>
+				</section>
+				<section>
+					<p>A continuación se muestra como las distintas cátedras de la facultad introducen estos temas.</p>
+				</section>
+				<section>
+					<h3>Primer Año</h3>
+				</section>
+				<section>
+					<ul>
+						<li>Conceptos de Algoritmos, Datos y Programas
+							<ul>
+								<li>Lógica</li>
+								<li class="fragment">Recurrencia</li>
+								<li class="fragment">Estructuras Algebráicas</li>
+							</ul>
+						</li>
+						<li class="fragment">Organización de Computadoras
+							<ul>
+								<li>Lógica</li>
+								<li class="fragment">Teoría de Números
+									<ul>
+										<li>Congruencias</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="fragment">Taller de Programación
+							<ul>
+								<li>Estructuras Algebráicas</li>
+								<li class="fragment">Teoría de Conjuntos
+									<ul>
+										<li>Clases</li>
+										<li class="fragment">Objetos</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Segundo Año</h3>
+				</section>
+				<section>
+					<h4>Primer Semestre</h4>
+					<ul>
+						<li>Fundamentos de Organización de Datos
+							<ul>
+								<li>Persistencia de Datos</li>
+								<li class="fragment">Estucturas Algebráicas</li>
+								<li class="fragment">Funciones</li>
+							</ul>
+						</li>
+						<li class="fragment">Algoritmos y Estructuras de Datos
+							<ul>
+								<li>Estructuras Algebráicas</li>
+								<li class="fragment">Teoría de Conjuntos</li>
+								<li class="fragment">Teoría de Grafos</li>
+								<li class="fragment">Optimización</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Segundo Semestre</h4>
+					<ul>
+						<li>Diseño de Bases de Datos
+							<ul>
+								<li>Persistencia de Datos</li>
+								<li class="fragment">Teoría de Conjuntos</li>
+								<li class="fragment">Álgebra Relacional</li>
+							</ul>
+						</li>
+						<li class="fragment">Orientación a Objetos I
+							<ul>
+								<li>Teoría de Conjuntos
+									<ul>
+										<li>Clases</li>
+										<li class="fragment">Objetos</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Tercer Año</h3>
+				</section>
+				<section>
+					<h4>Segundo Semestre</h4>
+					<ul>
+						<li>Computabilidad y Complejidad
+							<ul>
+								<li>Lógica</li>
+								<li class="fragment">Álgebra Relacional</li>
+							</ul>
+						</li>
+						<li class="fragment">Bases de Datos
+							<ul>
+								<li>Persistencia de Datos</li>
+								<li class="fragment">Teoría de Conjuntos</li>
+								<li class="fragment">Álgebra Relacional</li>
+								<li class="fragment">Optimización</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Cuarto Año</h3>
+				</section>
+				<section>
+					<ul>
+						<li>Teoría de la Computación y Verificación de Programas
+							<ul>
+								<li>Computabilidad y Complijidad</li>
+								<li class="fragment">Optimización</li>
+							</ul>
+						</li>
+						<li class="fragment">Lógica e Inteligencia Artificial
+							<ul>
+								<li>Probabilidades y Estadísticas</li>
+							</ul>
+						</li>
+						<li class="fragment">Sistemas Paralelos</li>
+					</ul>
+				</section>
+			</section>
+			<section data-background-image="assets/images/coffe.png" data-transition="zoom">
+			</section>
+			<section>
+				<h2>Resumen</h2>
+			</section>
+			<section data-background-image="assets/images/preguntas.png">
+				<h2>Preguntas</h2>
+			</section>
+			<section>
+				<h4>Contacto</h4>
+				<ul>
+					<li><a href="https://github.com/ulises-jeremias">github.com/ulises-jeremias</a></li>
+					<li><p>ulisescf.24@gmail.com</p></li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			history: true,
+			transition: 'convex',
+			math: {
+				// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				config: 'TeX-AMS_HTML-full'
+			},
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				},
+				{
+					src: 'lib/js/classList.js'
+				},
+				{
+					src: 'plugin/math/math.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
