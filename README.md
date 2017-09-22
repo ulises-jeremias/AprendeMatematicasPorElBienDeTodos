@@ -6,4 +6,4 @@ En este repositorio se encuentran los materiales utilizados durante la clase dic
 
 ## Download
 ### Manualmente
-  [![zip](https://img.shields.io/badge/zip-33.4%20kb-red.svg)](https://github.com/ulises-jeremias/clase-de-aplicaciones/archive/master.zip)
+  [![zip: 3.96mb](https://img.shields.io/badge/zip-3.96%20mb-red.svg)](https://github.com/ulises-jeremias/clase-de-aplicaciones/archive/master.zip)
