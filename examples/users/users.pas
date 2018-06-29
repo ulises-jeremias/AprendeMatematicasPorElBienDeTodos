@@ -19,7 +19,7 @@ VAR
 	Head, Tail: TNodePtr;
 	SampleRecord: TStudRec;
 
-procedure InitLL;
+procedure InitLinkedList;
 	begin
 		Head := nil;
 		Tail := Head;
@@ -211,7 +211,7 @@ procedure AssignRecord(StudRec: TStudRec; Name, Surname: String; ID, Age: Intege
 
 BEGIN
 	ClrScr;
-	InitLL;
+	InitLinkedList;
 
 	AssignRecord(SampleRecord, 'Victor', 'Saliba', 19, 12345, 'M');
 	AddRecord(SampleRecord);
