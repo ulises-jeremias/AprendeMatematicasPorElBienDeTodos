@@ -38,7 +38,7 @@ procedure AddRecord(StudRec: TStudRec);
 			New(Head);
 			New(Tail);
 			Head^ := Node;
-		End Else
+		end else
 		begin
 			Tail^.NodePtr^ := Node;
 		end;
@@ -171,7 +171,7 @@ procedure DeleteNodeWithID(ID: Integer);
 		begin
 			if TempPtr = Head then
 				Head := Head^.NodePtr
-			Else
+			else
 			begin
 				PrevPtr^.NodePtr := TempPtr^.NodePtr;
 			end;
