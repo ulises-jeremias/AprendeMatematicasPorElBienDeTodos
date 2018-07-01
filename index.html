@@ -12,7 +12,7 @@
 	<meta name="generator" content="reveal-ck 3.3.0">
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-tranlucent" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
@@ -49,10 +49,10 @@
 				</section>
 				<section>
 					<ul>
-						<li>Mauricio</li>
-						<li>Ivan</li>
-						<li>Victoria</li>
-						<li>Ulises Jeremias Cornejo Fandos</li>
+						<li>Mauricio Agosta</li>
+						<li>Iván Mindlin</li>
+						<li>M. Victoria Talerico</li>
+						<li>Ulises J. Cornejo Fandos</li>
 					</ul>
 				</section>
 			</section>
@@ -115,6 +115,124 @@ BEGIN
 
 END.
 					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h3>Matrices en la Programación</h3>
+				</section>
+				<section>
+					<h4>¿Qué es una matriz?</h4>
+					<p>Una <strong>matriz</strong> es un conjunto de elementos que se encuentran ordenados en filas y columnas.</p>
+					\[
+						A = \begin{pmatrix}
+							a_{11} &amp; a_{12} &amp; a_{13} &amp; \dots &amp; a_{1n} \\
+							a_{21} &amp; a_{22} &amp; a_{23} &amp; \dots &amp; a_{2n} \\
+							a_{31} &amp; a_{32} &amp; a_{33} &amp; \dots &amp; a_{3n} \\
+							\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+							a_{m1} &amp; a_{m2} &amp; a_{m3} &amp; \dots &amp; a_{mn} \\
+						\end{pmatrix}
+					\]
+				</section>
+				<section>
+					<h4>Operaciones sobre matrices</h4>
+					<ul>
+						<li>Suma de matrices</li>
+						<li>Multiplicación entre matrices</li>
+						<li>Multiplicación de una matriz por un escalar</li>
+						<li>Con sus respectivas propiedades
+							<ul>
+								<li>Asociativa de la suma, elemento neutro, elemento opuesto, etc...</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Aplicaciones de la matrices en la informática</h4>
+					<p>Las matrices nos permiten almacenar y organizar datos</p>
+					<ul>
+						<li class="fragment">Gráfica computacional</li>
+						<li class="fragment">Video juegos</li>
+						<li class="fragment">Resolución de grandes operaciones y ecuaciones complejas en tiempo relativamente cortos
+							<ul>
+								<li class="fragment">Transformaciones espaciales, vectoriales y de las matrices</li>
+							</ul>
+						</li>
+						<li class="fragment">Sistemas de detección de rostros</li>
+						<li class="fragment">...</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Gráfica computacional con matrices</h4>
+					<p><strong>Tarjetas de video</strong>: componente que se encarga de regular y mostrar las imágenes y texto.</p>
+					<br>
+					<p>Muy utilizadas en el ámbito gráfico debido a que las tarjetas de video realizan todos los procedimientos y dispocisión de la información en forma matricial.</p>
+				</section>
+				<section>
+					<h4>Diversos tipos de matrices</h4>
+					<ul>
+						<li class="fragment">Matrices de traslación</li>
+						<li class="fragment">Matrices de rotación</li>
+						<li class="fragment">Matrices de escalamiento</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Ejemplo de utilización en el ambito gráfico</h4>
+					<p>Para representar un punto gráficamente se representa mediante un vector de tres dimensiones (representación 3d).</p>
+					<br>
+					\[
+						vector(x, y, z) \rightarrow \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+					\]
+					<br>
+					<p>Diferentes transformaciones → Diferentes efectos</p>
+ 					<p>Ejemplo: en un videojuego</p>
+				</section>
+				<section>
+					<h5>Transformaciones</h5>
+					<a href="#" class="navigate-down">
+						<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+					</a>
+				</section>
+				<section>
+					<h4>Escalado</h4>
+					<p>Cambia el tamaño y proporción  de lo que se está representando. Si queremos escalar uniformemente los tres ejes,</p>
+					\[
+						P = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+					\]
+					\[
+						P' = \begin{pmatrix}
+							a &amp; 0 &amp; 0 \\
+							0 &amp; a &amp; 0 \\
+							0 &amp; 0 &amp; a \\
+						\end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+					\]
+					<p><strong>Matriz resultante:</strong> coordenadas del punto escalado</p>
+				</section>
+				<section>
+					<h5>Ejemplo</h5>
+					<h3>Super Mario Bros</h3>
+					<p>Cuando mario se come el <em>honguito</em> el personaje aumenta su tamaño!</p>
+					<br>
+					<img src="images/mario-escalado.png" alt="">
+				</section>
+				<section>
+					<h4>Traslación</h4>
+					<p>Desplazar un punto, o más, una cierta cantidad de veces en un sentido y dirección definida.</p>
+					\[
+						P = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+					\]
+					\[
+						P' = \begin{pmatrix} x \\ y \\ z \end{pmatrix} + \begin{pmatrix} a \\ b \\ c \end{pmatrix}
+					\]
+				</section>
+				<section>
+					<h6>Transformación de Traslación </h6>
+					<h4>Ejemplo</h4>
+					<img src="images/mario-traslacion.png" alt="">
+				</section>
+				<section>
+					<h4>Conclusión</h4>
+					<p>Los arreglos y matrices son muy utilizados en el ámbito informático, ya que nos permiten almacenar y manipular conjuntos de datos agrupados de manera eficiente.</p>
 				</section>
 			</section>
 			<section data-transition="zoom">
@@ -192,14 +310,6 @@ END.
 			<section>
 				<section>
 					<h3>IVAN - Criptografia</h3>
-				</section>
-				<section>
-					<p>Contenido</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h3>Victoria</h3>
 				</section>
 				<section>
 					<p>Contenido</p>
