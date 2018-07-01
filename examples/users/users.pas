@@ -5,7 +5,7 @@ TYPE
 	TStudRec = RECORD
 		Name, Surname: String;
 		Id, Age: Integer;
-		Gender: Char;
+		Sex: Char;
 	END;
 
 	TNodePtr = ^TNode;
@@ -38,7 +38,7 @@ procedure AddRecord(StudRec: TStudRec);
 			New(Head);
 			New(Tail);
 			Head^ := Node;
-		End Else
+		end else
 		begin
 			Tail^.NodePtr^ := Node;
 		end;
@@ -171,7 +171,7 @@ procedure DeleteNodeWithID(ID: Integer);
 		begin
 			if TempPtr = Head then
 				Head := Head^.NodePtr
-			Else
+			else
 			begin
 				PrevPtr^.NodePtr := TempPtr^.NodePtr;
 			end;
@@ -192,7 +192,7 @@ procedure PrintAll(Head: TNodePtr);
 			Writeln(Node^.StudRec.Surname);
 			Writeln(Node^.StudRec.Id);
 			Writeln(Node^.StudRec.Age);
-			Writeln(Node^.StudRec.Gender);
+			Writeln(Node^.StudRec.Sex);
 			Writeln('=================');
 
 			Node := Node^.NodePtr;
@@ -200,13 +200,13 @@ procedure PrintAll(Head: TNodePtr);
 		Writeln('Done Printing.');
 	end;
 
-procedure AssignRecord(StudRec: TStudRec; Name, Surname: String; ID, Age: Integer; Gender: Char);
+procedure AssignRecord(StudRec: TStudRec; Name, Surname: String; ID, Age: Integer; Sex: Char);
 	begin
 		SampleRecord.Name := Name;
 		SampleRecord.Surname := Surname;
 		SampleRecord.Age := Age;
 		SampleRecord.Id  := Id;
-		SampleRecord.Gender := Gender;
+		SampleRecord.Sex := Sex;
 	end;
 
 BEGIN
