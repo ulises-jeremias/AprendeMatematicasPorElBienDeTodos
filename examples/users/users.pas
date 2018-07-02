@@ -1,9 +1,9 @@
 PROGRAM linkedlists;
-USES Crt;
+USES sysutils, Crt;
 
 TYPE
-	TStudRec = RECORD
-		Name, Surname: String;
+	TUserRec = RECORD
+		Name, Surname, Email, Password: String;
 		Id, Age: Integer;
 		Sex: Char;
 	END;
@@ -11,13 +11,15 @@ TYPE
 	TNodePtr = ^TNode;
 
 	TNode = RECORD
-		StudRec: TStudRec;
+		UserRec: TUserRec;
 		NodePtr: TNodePtr;
 	END;
 
 VAR
 	Head, Tail: TNodePtr;
-	SampleRecord: TStudRec;
+	SampleRecord: TUserRec;
+	Email, Password: String;
+	isAuth: Boolean;
 
 procedure InitLinkedList;
 	begin
@@ -25,12 +27,12 @@ procedure InitLinkedList;
 		Tail := Head;
 	end;
 
-procedure AddRecord(StudRec: TStudRec);
+procedure AddRecord(UserRec: TUserRec);
 	var
 	Node: TNode;
 
 	begin
-		Node.StudRec := StudRec;
+		Node.UserRec := UserRec;
 		New(Node.NodePtr);
 
 		if Head = nil then
@@ -46,7 +48,7 @@ procedure AddRecord(StudRec: TStudRec);
 		Tail^ := Node;
 	end;
 
-procedure InsertRecordByIndex(Index: Integer; StudRec: TStudRec);
+procedure InsertRecordByIndex(Index: Integer; UserRec: TUserRec);
 	var
 		i: Integer;
 		TempPtr: TNodePtr;
@@ -61,7 +63,7 @@ procedure InsertRecordByIndex(Index: Integer; StudRec: TStudRec);
 
 		i := 0;
 		TempPtr := Head;
-		Node.StudRec := StudRec;
+		Node.UserRec := UserRec;
 		New(Node.NodePtr);
 
 		if (Index = 0) then
@@ -93,7 +95,7 @@ procedure InsertRecordByIndex(Index: Integer; StudRec: TStudRec);
 		end;
 	end;
 
-procedure InsertRecordByID(ID: Integer; StudRec: TStudRec);
+procedure InsertRecordByID(ID: Integer; UserRec: TUserRec);
 	var
 		TempPtr: TNodePtr;
 		Node, TempNode: TNode;
@@ -106,10 +108,10 @@ procedure InsertRecordByID(ID: Integer; StudRec: TStudRec);
 			Exit;
 
 		TempPtr := Head;
-		Node.StudRec := StudRec;
+		Node.UserRec := UserRec;
 		New(Node.NodePtr);
 
-		if (TempPtr^.StudRec.ID = ID) then
+		if (TempPtr^.UserRec.ID = ID) then
 		begin
 			TempNode := Head^;
 			Head^ := Node;
@@ -119,7 +121,7 @@ procedure InsertRecordByID(ID: Integer; StudRec: TStudRec);
 
 		while not Done do
 		begin
-			if (TempPtr^.StudRec.ID = ID) then
+			if (TempPtr^.UserRec.ID = ID) then
 				Break;
 
 			if (TempPtr^.NodePtr^.NodePtr = nil) then
@@ -155,7 +157,7 @@ procedure DeleteNodeWithID(ID: Integer);
 
 		while True do
 		begin
-			if (TempPtr^.StudRec.ID = ID) then
+			if (TempPtr^.UserRec.ID = ID) then
 				Break;
 
 			if (TempPtr^.NodePtr^.NodePtr = nil) then
@@ -185,14 +187,17 @@ procedure PrintAll(Head: TNodePtr);
 	begin
 		New(Node);
 		Node := Head;
+
 		while Node^.NodePtr <> nil do
 		begin
 			Writeln('=================');
-			Writeln(Node^.StudRec.Name);
-			Writeln(Node^.StudRec.Surname);
-			Writeln(Node^.StudRec.Id);
-			Writeln(Node^.StudRec.Age);
-			Writeln(Node^.StudRec.Sex);
+			Writeln(Node^.UserRec.Name);
+			Writeln(Node^.UserRec.Surname);
+			WriteLn(Node^.UserRec.Email);
+			WriteLn(Node^.UserRec.Password);
+			Writeln(Node^.UserRec.Id);
+			Writeln(Node^.UserRec.Age);
+			Writeln(Node^.UserRec.Sex);
 			Writeln('=================');
 
 			Node := Node^.NodePtr;
@@ -200,10 +205,32 @@ procedure PrintAll(Head: TNodePtr);
 		Writeln('Done Printing.');
 	end;
 
-procedure AssignRecord(StudRec: TStudRec; Name, Surname: String; ID, Age: Integer; Sex: Char);
+procedure Auth(Email, Password: String; var isFound: Boolean);
+	var
+		Node: TNodePtr;
+	begin
+		New(Node);
+		Node := Head;
+		isFound := False;
+
+		while Node^.NodePtr <> nil do
+		begin
+			if (CompareText(Node^.UserRec.Email, Email) = 0) AND (CompareText(Node^.UserRec.Password, Password) = 0) then
+			begin
+				isFound := True;
+				break;
+			end;
+
+			Node := Node^.NodePtr;
+		end;
+	end;
+
+procedure AssignRecord(UserRec: TUserRec; Name, Surname, Email, Password: String; ID, Age: Integer; Sex: Char);
 	begin
 		SampleRecord.Name := Name;
 		SampleRecord.Surname := Surname;
+		SampleRecord.Email := Email;
+		SampleRecord.Password := Password;
 		SampleRecord.Age := Age;
 		SampleRecord.Id  := Id;
 		SampleRecord.Sex := Sex;
@@ -213,20 +240,32 @@ BEGIN
 	ClrScr;
 	InitLinkedList;
 
-	AssignRecord(SampleRecord, 'Victor', 'Saliba', 19, 12345, 'M');
+	AssignRecord(SampleRecord, 'Victor', 'Saliba', 'victor@gmail.com', '1234', 19, 12345, 'M');
 	AddRecord(SampleRecord);
-	AssignRecord(SampleRecord, 'Mario', 'Petrack', 42, 00011, 'M');
+	AssignRecord(SampleRecord, 'Mario', 'Petrack', 'mario@gmail.com', '1435', 42, 00011, 'M');
 	AddRecord(SampleRecord);
-	AssignRecord(SampleRecord, 'Mary', 'Kels', 22, 20211, 'F');
+	AssignRecord(SampleRecord, 'Mary', 'Kels', 'mary@asd.com', '32134', 22, 20211, 'F');
 	AddRecord(SampleRecord);
-	AssignRecord(SampleRecord, 'Ken', 'Bolimpart', 19, 04148, 'M');
+	AssignRecord(SampleRecord, 'Pepe', 'Bolimpart', 'pepe@dsa.com', 'pepe123', 19, 04148, 'M');
 	AddRecord(SampleRecord);
-	AssignRecord(SampleRecord, 'Kelly', 'Becks', 16, 04148, 'F');
+	AssignRecord(SampleRecord, 'Laura', 'Becks', 'lauri@gmail.com', 'lauri789', 16, 04148, 'F');
 
 	InsertRecordByID(00011, SampleRecord);
 	DeleteNodeWithID(20211);
 
-	Writeln('Done...');
+	WriteLn('Done...');
+	WriteLn;
 	PrintAll(Head);
-	Readln;
+	WriteLn('Auth...');
+	Write('Email: ');
+	ReadLn(Email);
+	Write('Password: ');
+	ReadLn(Password);
+	Auth(Email, Password, isAuth);
+	WriteLn;
+
+	if isAuth then
+		WriteLn('Wellcome!')
+	else
+		WriteLn('Forbbiden');
 END.

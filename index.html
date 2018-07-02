@@ -45,7 +45,6 @@
 			<section>
 				<section data-autoslide="1500">
 					<h2>Presentación</h2>
-					<h3>INSERTE AQUÍ PRESENTACION RAPIDA DE LOS ADSCRIPTOS</h3>
 				</section>
 				<section>
 					<ul>
@@ -58,7 +57,7 @@
 			</section>
 			<section>
 				<section data-autoslide="2000">
-					<p>El objetivo de ésta charla es responder la siguiente pregunta:</p>
+					<p>El objetivo de ésta clase es responder la siguiente pregunta:</p>
 					<p class="fragment fade-up"><i>¿Cual el es rol que cumple la matemática en la Computación?</i></h3>
 				</section>
 			</section>
@@ -81,6 +80,7 @@
 								<li class="fragment">Deep Learning</li>
 							</ul>
 						</li>
+						<li class="fragment">Criptografía</li>
 						<li class="fragment">Software de Dominio Específico</li>
 						<li class="fragment">etc</li>
 					</ul>
@@ -110,9 +110,86 @@
 					Veamos un poco de código
 					<pre><code class="pas hljs" data-trim contenteditable>
 PROGRAM example;
+USES Crt;
+
+TYPE
+	TStudRec = RECORD
+		Name, Surname, Email, Password: String;
+		Id, Age: Integer;
+		Sex: Char;
+	END;
+
+	TNodePtr = ^TNode;
+
+	TNode = RECORD
+		StudRec: TStudRec;
+		NodePtr: TNodePtr;
+	END;
+
+VAR
+	Head, Tail: TNodePtr;
+	SampleRecord: TStudRec;
+
+procedure InitLinkedList;
+	begin
+		Head := nil;
+		Tail := Head;
+	end;
+
+[. . .]
+
+procedure Auth(Email, Password: String; var isFound: Boolean);
+	var
+		Node: TNodePtr;
+	begin
+		New(Node);
+		Node := Head;
+		isFound := False;
+
+		while Node^.NodePtr <> nil do
+		begin
+			if (CompareText(Node^.UserRec.Email, Email) = 0) AND (CompareText(Node^.UserRec.Password, Password) = 0) then
+			begin
+				isFound := True;
+				break;
+			end;
+
+			Node := Node^.NodePtr;
+		end;
+	end;
 
 BEGIN
+	ClrScr;
+	InitLinkedList;
 
+	AssignRecord(SampleRecord, 'Victor', 'Saliba', 'victor@gmail.com', '1234', 19, 12345, 'M');
+	AddRecord(SampleRecord);
+	AssignRecord(SampleRecord, 'Mario', 'Petrack', 'mario@gmail.com', '1435', 42, 00011, 'M');
+	AddRecord(SampleRecord);
+	AssignRecord(SampleRecord, 'Mary', 'Kels', 'mary@asd.com', '32134', 22, 20211, 'F');
+	AddRecord(SampleRecord);
+	AssignRecord(SampleRecord, 'Pepe', 'Bolimpart', 'pepe@dsa.com', 'pepe123', 19, 04148, 'M');
+	AddRecord(SampleRecord);
+	AssignRecord(SampleRecord, 'Laura', 'Becks', 'lauri@gmail.com', 'lauri789', 16, 04148, 'F');
+
+	InsertRecordByID(00011, SampleRecord);
+	DeleteNodeWithID(20211);
+
+	WriteLn('Done...');
+	WriteLn;
+	PrintAll(Head);
+	WriteLn('Auth...');
+	Write('Email: ');
+	ReadLn(Email);
+	Write('Password: ');
+	ReadLn(Password);
+	Auth(Email, Password, isAuth);
+	WriteLn;
+
+	if isAuth then
+		WriteLn('Wellcome!')
+	else
+		WriteLn('Forbbiden');
 END.
 					</code></pre>
 				</section>
@@ -128,11 +205,17 @@ END.
 				<section>
 					<h5>Esta a su vez se divide en:</h5>
 					<ul>
-						<li>Criptografía</li>
-						<li class="fragment">Criptoanalísis</li>
-						<li class="fragment">Cigrado de mensajes</li>
-						<li class="fragment">Descifrado de mensajes encriptados</li>
-						<li class="fragment">Diseño de criptosistemas</li>
+						<li>Criptografía
+							<ul>
+								<li class="fragment">Cifrado de mensajes</li>
+								<li class="fragment">Diseño de criptosistemas</li>
+							</ul>
+						</li>
+						<li class="fragment">Criptoanalísis
+							<ul>
+								<li class="fragment">Descifrado de mensajes encriptados</li>
+							</ul>
+						</li>
 					</ul>
 				</section>
 				<section>
@@ -422,14 +505,11 @@ END.
 					<p>Las matemáticas permiten el desarrollo de algoritmos los cuales le permitan a una máquina discriminar datos.</p>
 				</section>
 				<section>
-					<p>Entran en juego muchos campos de estudio, como la Probabilidad y la Estadística, entre otros.</p>
-				</section>
-				<section>
 					<p>El aprendizaje automático tiene una amplia gama de aplicaciones, incluyendo motores de búsqueda, diagnósticos médicos, detección de fraude en el uso de tarjetas de crédito, análisis del mercado de valores, clasificación de secuencias de ADN, reconocimiento del habla y del lenguaje escrito, juegos y robótica.</p>
 				</section>
 				<section>
 					<h3>Realmente muchas aplicaciones</h3>
-					<p>Y así como el machine learning tiene muchas aplicaciones, require el uso de mucha matemática</p>
+					<p>Y así como el machine learning tiene muchas aplicaciones, require el uso de <span class="fragment highlight-red"><strong>mucha matemática.</strong></span></p>
 				</section>
 				<section>
 					<h4>¿Cómo funciona el cerebro?</h4>
@@ -470,6 +550,49 @@ END.
 						<li class="fragment">etc</li>
 					</ul>
 				</section>
+				<section>
+					<h4>Redes Neuronales Profundas</h4>
+				</section>
+				<section>
+					<p>Cada <strong>sinapsis</strong> posee un <strong>peso</strong> utilizado para la <strong>activación</strong> de la neurona.</p>
+					<img src="images/dnn.png" alt="">
+				</section>
+				<section>
+					<p>Quedando redes de gran complejidad</p>
+					<img src="images/dnn-image.png" alt="">
+				</section>
+				<section>
+					<h4>Redes Neuronales de Convolución</h4>
+				</section>
+				<section>
+					<p>Son redes neuronales profundas de conexión parcial, donde las neuronas corresponden a campos receptivos de una manera muy similar a las neuronas en la corteza visual primaria de un cerebro biológico.</p>
+				</section>
+				<section>
+					<h3>Capas de Convolución</h3>
+				</section>
+				<section>
+					<h6>Capas de Convolución</h6>
+					<img src="images/fmaps.png" alt="">
+				</section>
+				<section>
+					<h6>Capas de Convolución</h6>
+					<img src="images/n_fmaps.png" alt="">
+				</section>
+				<section>
+					<h6>Capas de Convolución</h6>
+					<img src="images/channels_fmaps.png" alt="">
+				</section>
+				<section>
+					<p>En resumen, la matematica que entra en juego para realizar estas operaciones es muy variada.</p>
+					<ul>
+						<li>Probabilidad</li>
+						<li>Estadística</li>
+						<li>Analisis Matemático</li>
+						<li>Algebra Lineal</li>
+						<li>Cálculo Tensorial</li>
+						<li>Teoría de Grafos</li>
+					</ul>
+				</section>
 			</section>
 			<section data-transition="zoom">
 				<h2>Otros Ejemplos</h2>
@@ -503,147 +626,10 @@ END.
 				</section>
 			</section>
 			<section>
-				<section>
-					<h2>Cátedras de la Facultad</h2>
-				</section>
-				<section>
-					<p>A continuación se muestra como las distintas cátedras de la facultad introducen estos temas. (CAMBIAR)</p>
-				</section>
-				<section>
-					<h3>Primer Año</h3>
-				</section>
-				<section>
-					<ul>
-						<li>Conceptos de Algoritmos, Datos y Programas
-							<ul>
-								<li>Lógica</li>
-								<li class="fragment">Recurrencia</li>
-								<li class="fragment">Estructuras Algebráicas</li>
-							</ul>
-						</li>
-						<li class="fragment">Organización de Computadoras
-							<ul>
-								<li>Lógica</li>
-								<li class="fragment">Teoría de Números
-									<ul>
-										<li>Congruencias</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li class="fragment">Taller de Programación
-							<ul>
-								<li>Estructuras Algebráicas</li>
-								<li class="fragment">Teoría de Conjuntos
-									<ul>
-										<li>Clases</li>
-										<li class="fragment">Objetos</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Segundo Año</h3>
-				</section>
-				<section>
-					<h4>Primer Semestre</h4>
-					<ul>
-						<li>Fundamentos de Organización de Datos
-							<ul>
-								<li>Persistencia de Datos</li>
-								<li class="fragment">Estucturas Algebráicas</li>
-								<li class="fragment">Funciones</li>
-							</ul>
-						</li>
-						<li class="fragment">Algoritmos y Estructuras de Datos
-							<ul>
-								<li>Estructuras Algebráicas</li>
-								<li class="fragment">Teoría de Conjuntos</li>
-								<li class="fragment">Teoría de Grafos</li>
-								<li class="fragment">Optimización</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h4>Segundo Semestre</h4>
-					<ul>
-						<li>Diseño de Bases de Datos
-							<ul>
-								<li>Persistencia de Datos</li>
-								<li class="fragment">Teoría de Conjuntos</li>
-								<li class="fragment">Álgebra Relacional</li>
-							</ul>
-						</li>
-						<li class="fragment">Orientación a Objetos I
-							<ul>
-								<li>Teoría de Conjuntos
-									<ul>
-										<li>Clases</li>
-										<li class="fragment">Objetos</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Tercer Año</h3>
-				</section>
-				<section>
-					<h4>Segundo Semestre</h4>
-					<ul>
-						<li>Computabilidad y Complejidad
-							<ul>
-								<li>Lógica</li>
-								<li class="fragment">Álgebra Relacional</li>
-							</ul>
-						</li>
-						<li class="fragment">Bases de Datos
-							<ul>
-								<li>Persistencia de Datos</li>
-								<li class="fragment">Teoría de Conjuntos</li>
-								<li class="fragment">Álgebra Relacional</li>
-								<li class="fragment">Optimización</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Cuarto Año</h3>
-				</section>
-				<section>
-					<ul>
-						<li>Teoría de la Computación y Verificación de Programas
-							<ul>
-								<li>Computabilidad y Complijidad</li>
-								<li class="fragment">Optimización</li>
-							</ul>
-						</li>
-						<li class="fragment">Lógica e Inteligencia Artificial
-							<ul>
-								<li>Probabilidades y Estadísticas</li>
-							</ul>
-						</li>
-						<li class="fragment">Sistemas Paralelos</li>
-					</ul>
-				</section>
-			</section>
-			<section data-background-image="images/coffe.png" data-transition="zoom">
-			</section>
-			<section>
-				<h2>Resumen</h2>
+				<h2>Conclusión</h2>
 			</section>
 			<section data-background-image="images/preguntas.png">
 				<h2>Preguntas</h2>
-			</section>
-			<section>
-				<h4>Contactos (completar con los mails de c/u)</h4>
-				<ul>
-					<li><p>ucornejofandos@lifia.info.unlp.edu.ar</p></li>
-				</ul>
 			</section>
 		</div>
 	</div>
