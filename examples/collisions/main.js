@@ -7,7 +7,7 @@ window.onload = function() {
     height = canvas.height = targetCanvas.height = window.innerHeight,
     p = particle.create(0, height / 2, 10, 0);
 
-	p.radius = 7;
+	p.radius = 10;
 
   targetContext.beginPath();
   targetContext.arc(width / 2, height / 2, 200, 0, Math.PI * 2, false);
@@ -25,7 +25,7 @@ window.onload = function() {
     context.fill();
 
     var imageData = targetContext.getImageData(p.x, p.y, 1, 1);
-		
+
     if (imageData.data[3] > 0) {
       targetContext.globalCompositeOperation = "destination-out";
       targetContext.beginPath();
