@@ -118,6 +118,103 @@ END.
 				</section>
 			</section>
 			<section>
+				<section>
+					<h3>Criptografía</h3>
+				</section>
+				<section>
+					<h5>¿Qué es la Criptografía?</h5>
+					<p class="fragment">La Criptología es la ciencia que estudia los problemas teóricos relacionados con la seguridad en el intercambio de mensajes en clave.</p>
+				</section>
+				<section>
+					<h5>Esta a su vez se divide en:</h5>
+					<ul>
+						<li>Criptografía</li>
+						<li class="fragment">Criptoanalísis</li>
+						<li class="fragment">Cigrado de mensajes</li>
+						<li class="fragment">Descifrado de mensajes encriptados</li>
+						<li class="fragment">Diseño de criptosistemas</li>
+					</ul>
+				</section>
+				<section>
+					<h3>El punto de inflexión</h3>
+				</section>
+				<section>
+					<p>Históricamente la criptografía se basó en métodos de cifrados polialfabéticos y de trasposición.</p>
+				</section>
+				<section>
+					<h6>Ejemplos</h6>
+					<ul>
+						<li class="">Cifrado Cesar</li>
+						<li class="fragment">Tabla de Vigenère</li>
+						<li class="fragment">...</li>
+					</ul>
+					<br>
+					<p class="fragment">Poca relación con la matemática</p>
+					<p class="fragment">Razonamiento lingüístico/Reconocimiento de patrones</p>
+				</section>
+				<section>
+					<p>Muchos consideran la segunda guerra mundial un punto de inflexión para la criptografía.</p>
+				</section>
+				<section>
+					<h3>Enigma vs Collosus</h3>
+				</section>
+				<section>
+					<h3>¿Y de Ahí?</h3>
+				</section>
+				<section>
+					<p>Ese el fue el comienzo de una larga amistad entre Matemática e informática.</p>
+					<p class="fragment">Los criptosistemas  tomaron uso del enorme incremento de la capacidad de computación de los ordenadores.</p>
+				</section>
+				<section>
+					<h6>En particular...</h6>
+				</section>
+				<section>
+					<h3>Los criptosistemas asimétricos</h3>
+					<p><em>(O de llave pública-privada)</em><p>
+				</section>
+				<section>
+					Estos sistemas se basan en el uso de una llave pública para el cifrado del mensaje y una llave privada el descifrado.
+				</section>
+				<section>
+					<p>Su característica más importante es que no es factible deerminar la clave de desencriptado solo conociendo el algoritmo utilizado y la clave de encriptado.</p>
+					<br>
+					<h6 class="fragment">Para eso usan problemas matemáticos difíciles de resolver.</h6>
+				</section>
+				<section>
+					<h4>Ejemplos</h4>
+					<ul>
+						<li>Difie-Hoffman (teórico)</li>
+						<li class="fragment">RSA (El más utilizado, de los más seguros)</li>
+					</ul>
+					<br>
+					<br>
+					<p class="fragment">Ambos se basan en teoría de números: <strong>Números primos</strong>.</p>
+				</section>
+				<section>
+					<h6>No necesariamente encriptado</h6>
+					<ul>
+						<li class="fragment">Funciones hash, útiles para comparación/autentificación</li>
+						<li class="fragment">SHA-2</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Para Terminar</h4>
+				</section>
+				<section>
+					<h3>¿Un cifrado casero?</h3>
+				</section>
+				<section>
+					Usamos una matriz <em>E</em> de <em>nxn</em> inversible para encriptar un mensaje <em>m</em> de longitud <em>n</em>.
+					\[ E*m = mensaje\_cifrado \]
+					<br><br>
+					Siendo D la inversa de E tenemos que,
+					\[ D*mensaje\_cifrado = m \]
+					<br><br>
+					Multiplicar un vector es fácil.
+					Hallar <em>D</em> desde <em>E</em> puede llevar más trabajo.
+				</section>
+			</section>
+			<section>
 				<section data-background-image="images/matrices.jpg"></section>
 				<section>
 					<h4>¿Qué es una matriz?</h4>
@@ -303,14 +400,6 @@ END.
 				</section>
 				<section>
 					<h2>Resumen</h2>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h3>IVAN - Criptografia</h3>
-				</section>
-				<section>
-					<p>Contenido</p>
 				</section>
 			</section>
 			<section data-transition="zoom">
